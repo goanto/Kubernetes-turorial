@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicationController
+metadata:
+  name: RC1
+  labels:
+    apps: abc
+    type: db
+spec:
+  template:
+    metadata:
+      name: myapp
+      labels:
+        app: myapp
+
+    spec: 
+      containers:
+      - name: nginx-dep
+        image: nginx
+  replicas: 3
+  selector:
+    matchLabels:
+      type: test
+    

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc1
+
+spec:
+  type: ClusterIP
+  ports: 
+    - targetPort: 80
+      port: 80   #only needed
+      nodePort: 30010
+  selector:
+    app: myapp
+    type: web
